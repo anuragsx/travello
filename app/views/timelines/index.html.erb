@@ -1,7 +1,7 @@
 <header>
 		<div class="container">
 			<h1 class="logo">
-				Your Website Name
+				Travello
 			</h1>
 			<section class="social">
 
@@ -10,6 +10,7 @@
 	</header>
 
 	<div class="container">
+	<%= link_to image_tag("upload.png", border: 0), {action: 'new', controller: 'pictures'}%>
     <h1 class="project-name">TIMELINE</h1>
 		<div id="timeline">
 			<% current_user.pictures.each do |picture|%>
@@ -27,11 +28,11 @@
 
 					</div>
 					<div class="timeline-content">
-						<h2><%= picture.created_at %></h2>
+						<h2><%= picture.created_at.strftime("%d/%m/%Y") %></h2>
 						<p>
 							<%= image_tag picture.avatar.url(:medium)%>
 						</p>
-						<a href="#" class="btn">button</a>
+						<a href="#" class="btn">Details</a>
 					</div>
 				</div>
 			<%else%>
@@ -51,11 +52,11 @@
 
 				</div>
 				<div class="timeline-content right">
-					<h2><%= picture.created_at %></h2>
+					<h2><%= picture.created_at.strftime("%d/%m/%Y") %></h2>
 					<p>
 					<%= image_tag picture.avatar.url(:medium)%>
 					</p>
-					<a href="#" class="btn">button</a>
+					<a href="#" class="btn">Details</a>
 				</div>
 			</div>
 			<%end %>	
